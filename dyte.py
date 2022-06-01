@@ -26,7 +26,8 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Version Check')
 parser.add_argument('filename', type=argparse.FileType('r'), metavar='', help=".csv filename")
-parser.add_argument('-b','--branch', metavar='', required=True, help="brance name of Github Repository")
+parser.add_argument('-b','--branch', metavar='', required=True, help="branch name of Github Repository")
+parser.add_argument('-v','--version', metavar='', required=True, help="Specified Version")
 group = parser.add_mutually_exclusive_group()
 group.add_argument('-u','--update', action='store_true', help="Update Version")
 args = parser.parse_args()
@@ -191,7 +192,7 @@ def git_pr(link):
 
 
 
-input = 'axios@0.23.0'  # from input
+input = args.version  # from input
 version2 = input.replace('axios@','').replace(" ", "")
 
 
